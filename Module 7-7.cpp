@@ -50,14 +50,15 @@ int main()
 	int durationActionAntibiotic = 10;
 	int passedHour = 1;
 
-	while (durationActionAntibiotic > 0 || numberBacteria > 0) {
+	while (durationActionAntibiotic > 0 && numberBacteria > 0) {
 		numberBacteria = (numberBacteria * 2) - (durationActionAntibiotic * antibioticDrops);
+		if (numberBacteria < 0) numberBacteria = 0;
 		std::cout << "После " << passedHour << " часа бактерий осталось " << numberBacteria << std::endl;
 		durationActionAntibiotic--;
 		passedHour++;
 	}
 
-	if (durationActionAntibiotic == 0) std::cout << "Действие антибиотика закончилось";
-	if (numberBacteria == 0) std::cout << "Все бактерии погибли";
+	if (durationActionAntibiotic == 0) std::cout << "Действие антибиотика закончилось.";
+	if (numberBacteria == 0) std::cout << "Все бактерии погибли!";
 
 }
